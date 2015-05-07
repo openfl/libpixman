@@ -95,7 +95,7 @@ following guidelines:
    test suite fail due to the bug, and then another commit that fixes
    the bug.
 
-   You can run the test suite with 
+   You can run the test suite with
 
         make check
 

@@ -6,6 +6,8 @@
 		<compilerflag value="-DPACKAGE=pixman" />
 		<compilerflag value="-DHAVE_PTHREADS" unless="windows" />
 		
+		<compilerflag value="-Wno-tautological-constant-out-of-range-compare" if="mac" />
+		
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-access.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-access-accessors.c" />

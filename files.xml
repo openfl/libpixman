@@ -1,11 +1,11 @@
 <xml>
-
+	
 	<files id="native-toolkit-pixman" >
-
+		
 		<compilerflag value="-I${NATIVE_TOOLKIT_PATH}/pixman/src" />
 		<compilerflag value="-DPACKAGE=pixman" />
 		<compilerflag value="-DHAVE_PTHREADS" unless="windows" />
-
+		
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-access.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-access-accessors.c" />
@@ -36,7 +36,7 @@
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-timer.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-trap.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-utils.c" />
-
+		
 	</files>
-
+	
 </xml>

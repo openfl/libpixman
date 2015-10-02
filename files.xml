@@ -6,7 +6,7 @@
 		<compilerflag value="-DPACKAGE=pixman" />
 		<compilerflag value="-DHAVE_PTHREADS" unless="windows" />
 		
-		<compilerflag value="-Wno-tautological-constant-out-of-range-compare" if="mac || ios" />
+		<compilerflag value="-Wno-tautological-constant-out-of-range-compare" if="mac || ios || tvos" />
 		
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-access.c" />

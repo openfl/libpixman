@@ -4,6 +4,7 @@
 		
 		<compilerflag value="-I${NATIVE_TOOLKIT_PATH}/pixman/src" />
 		<compilerflag value="-DPACKAGE=pixman" />
+		<compilerflag value="-DPIXMAN_NO_TLS" if="windows" />
 		<compilerflag value="-DHAVE_PTHREADS" unless="windows" />
 		
 		<compilerflag value="-Wno-tautological-constant-out-of-range-compare" if="mac || ios || tvos" />

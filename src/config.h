@@ -271,7 +271,7 @@
 /* #undef USE_VMX */
 
 /* use x86 MMX compiler intrinsics */
-#if defined(HX_WINDOWS) || defined(HX_MACOS) || defined(HX_LINUX)
+#if (defined(HX_WINDOWS) || defined(HX_MACOS) || defined(HX_LINUX)) && !defined(HXCPP_M64)
 #define USE_X86_MMX 1
 #else
 /* #undef USE_X86_MMX */

@@ -229,13 +229,25 @@
 #endif
 
 /* use ARM IWMMXT compiler intrinsics */
+// #if !defined(HX_LINUX) && !defined(HX_MACOS) && !defined(HX_WINDOWS) && !defined(EMSCRIPTEN)
+// #define USE_ARM_IWMMXT 1
+// #else
 /* #undef USE_ARM_IWMMXT */
+// #endif
 
 /* use ARM NEON assembly optimizations */
+// #if defined(HXCPP_ARMV7) || defined(HXCPP_ARMV7S) || defined(HXCPP_ARM64)
+// #define USE_ARM_NEON 1
+// #else
 /* #undef USE_ARM_NEON */
+// #endif
 
 /* use ARM SIMD assembly optimizations */
+// #if defined(HXCPP_ARMV7) || defined(HXCPP_ARMV7S) || defined(HXCPP_ARM64)
+// #define USE_ARM_SIMD 1
+// #else
 /* #undef USE_ARM_SIMD */
+// #endif
 
 /* use GNU-style inline assembler */
 #ifdef __GNUC__
@@ -271,7 +283,7 @@
 /* #undef USE_VMX */
 
 /* use x86 MMX compiler intrinsics */
-#if (defined(HX_WINDOWS) || defined(HX_MACOS) || defined(HX_LINUX)) && !defined(HXCPP_M64)
+#if (defined(HX_WINDOWS) || /*defined(HX_MACOS) ||*/ defined(HX_LINUX)) && !defined(HXCPP_M64)
 #define USE_X86_MMX 1
 #else
 /* #undef USE_X86_MMX */

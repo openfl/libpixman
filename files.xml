@@ -1,5 +1,10 @@
 <xml>
 
+	<!-- TODO: ARM64 NEON -->
+
+	<set name="PIXMAN_ARM_SIMD" value="1" if="android" unless="HXCPP_ARMV7 || HXCPP_ARMV7S || HXCPP_ARM64 || HXCPP_X86" />
+	<set name="PIXMAN_ARM_NEON" value="1" if="HXCPP_ARMV7 || HXCPP_ARMV7S" />
+
 	<files id="native-toolkit-pixman" >
 
 		<compilerflag value="-I${NATIVE_TOOLKIT_PATH}/pixman/src" />
@@ -9,15 +14,27 @@
 		<compilerflag value="-DNATIVE_TOOLKIT_HAVE_PNG" if="NATIVE_TOOLKIT_HAVE_PNG" />
 		<compilerflag value="-I${NATIVE_TOOLKIT_PATH}/png" if="NATIVE_TOOLKIT_HAVE_PNG" />
 
+		<compilerflag value="-DUSE_ARM_NEON=1" if="PIXMAN_ARM_NEON" />
+		<compilerflag value="-DUSE_ARM_SIMD=1" if="PIXMAN_ARM_SIMD" />
+
+		<compilerflag value="-I${ANDROID_NDK_ROOT}/sources/android/cpufeatures" if="android"/>
+
 		<compilerflag value="-msse3" if="linux || mac" />
 		<compilerflag value="-mavx" if="linux || mac" />
 
+		<compilerflag value="-Wno-attributes" if="android" />
 		<compilerflag value="-Wno-tautological-constant-out-of-range-compare" if="mac || ios || tvos" />
 
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-access.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-access-accessors.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-arm.c" />
+		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-arm-neon.c" if="PIXMAN_ARM_NEON" />
+		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-arm-neon-asm-bilinear.S" if="PIXMAN_ARM_NEON" />
+		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-arm-neon-asm.S" if="PIXMAN_ARM_NEON" />
+		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-arm-simd.c" if="PIXMAN_ARM_SIMD" />
+		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-arm-simd-asm.S" if="PIXMAN_ARM_SIMD" />
+		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-arm-simd-asm-scaled.S" if="PIXMAN_ARM_SIMD" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-bits-image.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-combine32.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-combine-float.c" />

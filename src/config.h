@@ -215,7 +215,7 @@
 #endif
 
 /* The compiler supported TLS storage class */
-#ifndef HX_WINDOWS
+#if !defined(HX_WINDOWS) && !defined(IPHONE)
 #define TLS __thread
 #else
 /* #undef TLS */

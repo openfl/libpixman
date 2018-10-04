@@ -266,14 +266,14 @@
 /* #undef USE_OPENMP */
 
 /* use SSE2 compiler intrinsics */
-#if defined(HX_WINDOWS) || defined(HX_MACOS) || defined(HX_LINUX)
+#if defined(HX_WINDOWS) || defined(HX_MACOS) || (defined(HX_LINUX) && !defined(RASPBERRYPI))
 #define USE_SSE2 1
 #else
 /* #undef USE_SSE2 */
 #endif
 
 /* use SSSE3 compiler intrinsics */
-#if defined(HX_WINDOWS) || defined(HX_MACOS) || defined(HX_LINUX)
+#if defined(HX_WINDOWS) || defined(HX_MACOS) || (defined(HX_LINUX) && !defined(RASPBERRYPI))
 #define USE_SSE3 1
 #else
 /* #undef USE_SSE3 */
@@ -283,7 +283,7 @@
 /* #undef USE_VMX */
 
 /* use x86 MMX compiler intrinsics */
-#if (defined(HX_WINDOWS) || /*defined(HX_MACOS) ||*/ defined(HX_LINUX)) && !defined(HXCPP_M64)
+#if (defined(HX_WINDOWS) || /*defined(HX_MACOS) ||*/ (defined(HX_LINUX) && !defined(RASPBERRYPI)) ) && !defined(HXCPP_M64)
 #define USE_X86_MMX 1
 #else
 /* #undef USE_X86_MMX */

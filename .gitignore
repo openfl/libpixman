@@ -23,8 +23,8 @@ libtool
 ltmain.sh
 missing
 stamp-h?
-config.h
 config.h.in
+test-driver
 .*.swp
 demos/*-test
 demos/checkerboard
@@ -34,7 +34,6 @@ demos/quad2quad
 demos/scale
 demos/dither
 pixman/pixman-srgb.c
-pixman/pixman-version.h
 test/*-test
 test/affine-bench
 test/alpha-loop

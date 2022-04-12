@@ -1,3 +1,4 @@
+/* config.h.  Generated from config.h.in by configure.  */
 /* config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* Define if building universal (internal helper macro) */
@@ -22,6 +23,13 @@
 #define HAVE_DLFCN_H 1
 #else
 /* #undef HAVE_DLFCN_H */
+#endif
+
+/* Whether we have FE_DIVBYZERO */
+#ifdef HX_LINUX
+#define HAVE_FEDIVBYZERO 1
+#else
+/* #undef HAVE_FEDIVBYZERO */
 #endif
 
 /* Whether we have feenableexcept() */
@@ -172,8 +180,7 @@
 /* #undef HAVE_UNISTD_H */
 #endif
 
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
 /* #undef LT_OBJDIR */
 
 /* Name of package */
@@ -186,7 +193,7 @@
 #define PACKAGE_NAME "pixman"
 
 /* Define to the full name and version of this package. */
-#define PACKAGE_STRING "pixman 0.32.8"
+#define PACKAGE_STRING "pixman 0.40.1"
 
 /* Define to the one symbol short name of this package. */
 #define PACKAGE_TARNAME "pixman"
@@ -195,7 +202,10 @@
 #define PACKAGE_URL ""
 
 /* Define to the version of this package. */
-#define PACKAGE_VERSION "0.32.8"
+#define PACKAGE_VERSION "0.40.1"
+
+/* enable output that can be piped to gnuplot */
+/* #undef PIXMAN_GNUPLOT */
 
 /* enable TIMER_BEGIN/TIMER_END macros */
 /* #undef PIXMAN_TIMERS */
@@ -227,6 +237,9 @@
 #else
 /* #undef TOOLCHAIN_SUPPORTS_ATTRIBUTE_CONSTRUCTOR */
 #endif
+
+/* use ARM A64_NEON assembly optimizations */
+/* #undef USE_ARM_A64_NEON */
 
 /* use ARM IWMMXT compiler intrinsics */
 // #if !defined(HX_LINUX) && !defined(HX_MACOS) && !defined(HX_WINDOWS) && !defined(EMSCRIPTEN)
@@ -290,7 +303,7 @@
 #endif
 
 /* Version number of package */
-#define VERSION "0.32.8"
+#define VERSION "0.40.1"
 
 /* Define WORDS_BIGENDIAN to 1 if your processor stores words with the most
    significant byte first (like Motorola and SPARC, unlike Intel). */

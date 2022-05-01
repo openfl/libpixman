@@ -1,5 +1,20 @@
-/* config.h.  Generated from config.h.in by configure.  */
-/* config.h.in.  Generated from configure.ac by autoheader.  */
+/**
+   Modified version of config.h, customized for native-toolkit. The conditional
+   compilation blocks allow this same file to be used across machines.
+
+   Run autogen.sh to generate a new version of this file, but be warned that the
+   new version will lack any conditional compilation blocks, making it
+   machine-specific. (To run autogen.sh on Windows, see
+   https://docs.microsoft.com/en-us/windows/wsl/about .)
+
+   With the new version generated:
+
+   1. Run `git diff config.h` (or similar) to check what changes were made.
+   2. Keep a record of any important changes.
+   3. Revert config.h to restore the conditional compilation blocks.
+   4. Apply the changes you recorded in step 2, using conditional compilation as
+      appropriate.
+**/
 
 /* Define if building universal (internal helper macro) */
 /* #undef AC_APPLE_UNIVERSAL_BUILD */

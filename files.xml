@@ -5,7 +5,7 @@
 	<!-- <set name="PIXMAN_ARM_SIMD" value="1" if="android || rpi" unless="HXCPP_ARMV7 || HXCPP_ARMV7S || HXCPP_ARM64 || HXCPP_X86" /> -->
 	<set name="PIXMAN_ARM_NEON" value="1" if="HXCPP_ARMV7 || HXCPP_ARMV7S || rpi" unless="ios" />
 
-	<!-- Run setup now so we can determine whether clang or GCC will be used. -->
+	<!-- Run setup now so we can determine whether Clang or GCC will be used. -->
 	<!-- TODO: if https://github.com/HaxeFoundation/hxcpp/issues/930 ever gets resolved, use that instead. -->
 	<setup name="androidNdk" />
 

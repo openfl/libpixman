@@ -19,11 +19,11 @@
 
 		<compilerflag value="-I${ANDROID_NDK_ROOT}/sources/android/cpufeatures" if="android"/>
 
-		<compilerflag value="-mmmx" if="linux || mac" unless="rpi"/>
-		<compilerflag value="-msse" if="linux || mac" unless="rpi"/>
-		<compilerflag value="-msse2" if="linux || mac" unless="rpi"/>
-		<compilerflag value="-msse3" if="linux || mac" unless="rpi"/>
-		<compilerflag value="-mssse3" if="linux || mac" unless="rpi"/>
+		<compilerflag value="-mmmx" if="linux || mac" unless="rpi || HXCPP_ARM64" />
+		<compilerflag value="-msse" if="linux || mac" unless="rpi || HXCPP_ARM64" />
+		<compilerflag value="-msse2" if="linux || mac" unless="rpi || HXCPP_ARM64" />
+		<compilerflag value="-msse3" if="linux || mac" unless="rpi || HXCPP_ARM64" />
+		<compilerflag value="-mssse3" if="linux || mac" unless="rpi || HXCPP_ARM64" />
 
 		<compilerflag value="-Wno-attributes" if="android" />
 		<compilerflag value="-Wno-tautological-constant-out-of-range-compare" if="mac || ios || tvos" />
@@ -54,15 +54,15 @@
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-linear-gradient.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-matrix.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-mips.c" />
-		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-mmx.c" if="windows || mac || linux" unless="rpi"/>
+		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-mmx.c" if="windows || mac || linux" unless="rpi || HXCPP_ARM64" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-noop.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-ppc.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-radial-gradient.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-region16.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-region32.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-solid-fill.c" />
-		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-sse2.c" if="windows || mac || linux" unless="rpi"/>
-		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-ssse3.c" if="windows || mac || linux" unless="rpi"/>
+		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-sse2.c" if="windows || mac || linux" unless="rpi || HXCPP_ARM64" />
+		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-ssse3.c" if="windows || mac || linux" unless="rpi || HXCPP_ARM64" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-timer.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-trap.c" />
 		<file name="${NATIVE_TOOLKIT_PATH}/pixman/src/pixman-utils.c" />
